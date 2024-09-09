@@ -8,7 +8,7 @@
     reauthorize: yes
 
 - name: Pull an image
-  shell: docker pull {{ registry_ip }}/kulerock:{{ task_name }}
+  shell: docker pull {{ lookup('env', 'registry_ip') }}/kulerock:{{ task_name }}
 
 - name: Check and create folder
   file:
