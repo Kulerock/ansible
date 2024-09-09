@@ -1,0 +1,7 @@
+
+[staging_servers]
+ubuntu2   ansible_host=192.168.56.105 owner=Petya
+centos1   ansible_host=192.168.56.106 owner=Vasek
+ubuntu3   ansible_host=192.168.56.107 ansible_sudo_pass=000888
+
+

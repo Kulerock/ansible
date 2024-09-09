@@ -1,0 +1,10 @@
+---
+# defaults file for vim
+
+password: 000888
+task_name: task1
+task_directory: /home/kulerock/kate/git/devops_study/
+user: kulerock
+registry_ip: 192.168.56.104:5000
+container_name: task2
+port: 81

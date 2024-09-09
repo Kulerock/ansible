@@ -1,0 +1,7 @@
+services:
+  web-server:
+    image: "{{ registry_ip }}/kulerock:{{ task_name }}"
+    container_name: "{{ container_name }}"
+    ports:
+      - "{{ port }}:80"
+    restart: always

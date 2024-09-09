@@ -1,0 +1,35 @@
+---
+# tasks file for vim
+- name: Login in registry
+  docker_login:
+    registry: "{{ registry_ip }}"
+    username: "{{ user }}"
+    password: "{{ password }}"
+    reauthorize: yes
+
+- name: Pull an image
+  shell: docker pull {{ registry_ip }}/kulerock:{{ task_name }}
+
+- name: Check and create folder
+  file:
+    path: "{{ task_directory }}"
+    state: directory
+    mode: '0755'
+
+- name: generate docker compose file
+  template: src="{{ task_directory }}roles/task/templates/docker-compose.yml.j2" dest="{{ task_directory }}docker-compose.yml" mode=0755
+
+- name: Down Docker Compose
+  command: "docker compose down"
+  args:
+    chdir: "{{ task_directory }}"
+
+- name: Run Docker Compose
+  command: "docker compose up -d"
+  args:
+    chdir: "{{ task_directory }}"
+
+- name: Log out of Registry
+  docker_login:
+    state: absent
+    registry: "{{ registry_ip }}"
