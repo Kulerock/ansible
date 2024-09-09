@@ -1,10 +1,10 @@
 ---
 # defaults file for vim
 
-password: 000888
-task_name: task1
-task_directory: /devops_study/
-user: kulerock
-registry_ip: 192.168.56.104:5000
-container_name: task2
-port: 81
+password: password
+task_name: task_name
+task_directory: task_directory
+user: user
+registry_ip: registry_ip
+container_name: container_name
+port: port
