@@ -17,12 +17,13 @@
     mode: '0755'
 
 - name: generate docker compose file
-  template: src="{{ task_directory }}roles/task/templates/docker-compose.yml.j2" dest="{{ task_directory }}docker-compose.yml" mode=0755
+  template: src="docker-compose.yml.j2" dest="{{ task_directory }}docker-compose.yml" mode=0755
 
 - name: Down Docker Compose
   command: "docker compose down"
   args:
     chdir: "{{ task_directory }}"
+  ignore_errors: yes
 
 - name: Run Docker Compose
   command: "docker compose up -d"
