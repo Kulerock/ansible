@@ -3,7 +3,7 @@
 - name: Login in registry
   docker_login:
     registry: "{{ lookup('env', 'registry_ip') }}"
-    username: "{{ lookup('env', 'user') }}"
+    username: "{{ lookup('env', 'user_docker') }}"
     password: "{{ lookup('env', 'password') }}"
     reauthorize: yes
 
