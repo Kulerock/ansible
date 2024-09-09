@@ -4,7 +4,7 @@
   docker_login:
     registry: "{{ lookup('env', 'registry_ip') }}"
     username: "{{ lookup('env', 'user_docker') }}"
-    password: "{{ lookup('env', 'password') }}"
+    password: "{{ lookup('env', 'PASSWORD_DOCKER') }}"
     reauthorize: yes
 
 - name: Pull an image
